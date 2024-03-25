@@ -1,0 +1,19 @@
+version: "3.3"
+services:
+  build:
+    platform: linux/amd64
+    image: scrape-baseballr
+    build:
+      context: .
+  scrape:
+    image: scrape-baseballr
+    depends_on:
+      - build
+    command:
+      # default params
+      -  --action=scrape
+      -  --start_date=2023-07-01 
+      -  --end_date=2023-07-03 
+      -  --level=lowa
+    volumes:
+      - ./data:/data
