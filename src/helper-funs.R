@@ -2,7 +2,7 @@
 pull_baseballr_gamepks <- function(levels, start_date, end_date) {
   start_date <- as.Date(start_date)
   end_date <- as.Date(end_date)
-  dates <- start_date:end_date
+  dates <- seq.Date(start_date, end_date, by = "day")
   
   game_pks_all <- tibble::tibble(NULL)
   pb <- progress::progress_bar$new(total = length(dates))
